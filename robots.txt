@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://kumas.dev/sitemap/sitemap-index.xml
+Host: https://kumas.dev

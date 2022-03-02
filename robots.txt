@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://blog.kumas.dev/sitemap/sitemap-index.xml
-Host: https://blog.kumas.dev
+Sitemap: https://kumas.dev/sitemap/sitemap-index.xml
+Host: https://kumas.dev

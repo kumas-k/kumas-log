@@ -1,0 +1,8 @@
+gatsby-browser.js
+gatsby-config.js
+gatsby-node.js
+gatsby-ssr.js
+
+_config.js
+tailwind.config.js
+postcss.config.js

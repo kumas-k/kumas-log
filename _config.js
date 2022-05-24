@@ -3,7 +3,7 @@ module.exports = {
   description: `Blog posted about ...`,
   author: `쿠마스`,
   introduction: `I explain with words and code. I explain with words and code. I explain with words and code.`,
-  siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+  siteUrl: `https://kumas.dev`,
   social: {
     github: `https://github.com/devkumas`,
     linkedin: `https://www.linkedin.com/in/kumas`,
@@ -25,11 +25,11 @@ module.exports = {
     `BackEnd`,
   ],
   comment: {
-    utterances: '', // Your repository for archive comment
+    utterances: '',
   },
   configs: {
-    countOfInitialPost: 10, // Config your initial count of post
+    countOfInitialPost: 10,
   },
-  ga: '0', // Add your google analytics tranking ID
-  ad: '', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
+  ga: '0',
+  ad: '',
 }

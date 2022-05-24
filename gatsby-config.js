@@ -73,5 +73,6 @@ module.exports = {
         icon: siteMetadata.icon, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }

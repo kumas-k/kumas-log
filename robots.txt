@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /404
+Sitemap: https://kumas.dev/sitemap.xml
+Host: https://kumas.dev

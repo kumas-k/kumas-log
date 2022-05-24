@@ -74,5 +74,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-advanced-sitemap',
+      options: {
+        exclude: ['/404'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://kumas.dev',
+        sitemap: 'https://kumas.dev/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/', disallow: ['/404'] }],
+      },
+    },
   ],
 }

@@ -1,10 +1,10 @@
 ---
-title: "✨ 지연된 평가를 병렬적으로 평가하기"
+title: '지연된 평가를 병렬적으로 평가하기'
 date: 2021-11-22
 tags:
   - javascript
   - functional
-series: "함수형 프로그래밍과 JavaScript ES6"
+series: '함수형 프로그래밍과 JavaScript ES6'
 draft: false
 ---
 
@@ -17,16 +17,16 @@ draft: false
 명령을 요청하면 1초가 소요되는 IO작업이 있다고 한다면, 해당 작업을 순차적으로 진행하며 go 함수를 진행할 것입니다.
 
 ```jsx
-const delay1000 = a =>
-  newPromise(resolve => setTimeout(() => resolve(a), 1000)); // 1초가 필요한 비동기 작업
+const delay1000 = (a) =>
+  newPromise((resolve) => setTimeout(() => resolve(a), 1000)) // 1초가 필요한 비동기 작업
 
 go(
   [1, 2, 3, 4, 5],
-  L.map(a => delay1000(a * a)),
-  L.filter(a => a % 2),
+  L.map((a) => delay1000(a * a)),
+  L.filter((a) => a % 2),
   reduce((a, b) => a + b),
-  console.log
-);
+  console.log,
+)
 // 35
 // default: 5016.022216796875 ms
 ```
@@ -57,14 +57,14 @@ go(
 
 ```jsx
 function* f() {
-  yield console.log(1);
-  yield console.log(2);
-  yield console.log(3);
+  yield console.log(1)
+  yield console.log(2)
+  yield console.log(3)
 }
 
-const iter = f(); // 아무일도 일어나지 않음
-iter.next(); // 콘솔이 1 찍힘
-[...iter]; // 콘솔에 2, 3 찍힘
+const iter = f() // 아무일도 일어나지 않음
+iter.next() // 콘솔이 1 찍힘
+;[...iter] // 콘솔에 2, 3 찍힘
 ```
 
 ### 병렬적 평가에서 nop 체크하기

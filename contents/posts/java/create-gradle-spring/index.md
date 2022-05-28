@@ -1,5 +1,5 @@
 ---
-title: "🔨 Gradle으로 Spring 프로젝트 생성하기 "
+title: 'Gradle으로 Spring 프로젝트 생성하기 '
 date: 2021-06-04
 tags:
   - spring

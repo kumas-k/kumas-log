@@ -1,5 +1,5 @@
 ---
-title: '🙈 백준 문제풀이 세팅 (Node.js)'
+title: '백준 문제풀이 세팅 (Node.js)'
 date: 2021-11-28
 tags:
   - algorithm

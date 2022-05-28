@@ -1,5 +1,5 @@
 ---
-title: "✍️ Linux Apache2 + Tomcat9 연동 설치"
+title: '️Linux Apache2 + Tomcat9 연동 설치'
 date: 2021-06-10
 tags:
   - linux

@@ -1,5 +1,5 @@
 ---
-title: "🤔 React의 종류"
+title: 'React의 종류'
 date: 2021-09-14
 tags:
   - react
@@ -16,40 +16,40 @@ draft: false
 - render 함수가 꼭 있어야 하고, 그 안에서 보여 주어야 할 jsx를 반환해야 한다
 
 ```jsx
-import React from "react";
+import React from 'react'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       first: Math.ceil(Math.random() * 9),
       second: Math.ceil(Math.random() * 9),
-      value: "",
-      result: "",
-    };
+      value: '',
+      result: '',
+    }
   }
 
   onSubmit = () => {
-    e.preventDefault();
+    e.preventDefault()
     if (parseInt(this.state.value) === this.state.first * this.state.second) {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         return {
           result: `정답: ${prevState.value}`,
           first: Math.ceil(Math.random() * 9),
           second: Math.ceil(Math.random() * 9),
-          value: "",
-        };
-      });
+          value: '',
+        }
+      })
     } else {
       this.setState({
-        result: "땡",
-        value: "",
-      });
+        result: '땡',
+        value: '',
+      })
     }
-    this.input.focus();
-  };
+    this.input.focus()
+  }
 
-  onChange = e => this.setState({ value: e.target.value });
+  onChange = (e) => this.setState({ value: e.target.value })
 
   render() {
     return (
@@ -59,8 +59,8 @@ class App extends React.Component {
         </div>
         <form onSubmit={this.onSubmit}>
           <input
-            ref={c => {
-              this.input = c;
+            ref={(c) => {
+              this.input = c
             }}
             type="number"
             value={this.state.value}
@@ -70,7 +70,7 @@ class App extends React.Component {
           <div>{this.state.result}</div>
         </form>
       </React.Fragment>
-    );
+    )
   }
 }
 ```

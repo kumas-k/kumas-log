@@ -1,5 +1,5 @@
 ---
-title: '🔨 Hexo를 이용하여 깃허브 블로그 만들기'
+title: 'Hexo를 이용하여 깃허브 블로그 만들기'
 date: 2021-11-11
 tags:
   - hexo

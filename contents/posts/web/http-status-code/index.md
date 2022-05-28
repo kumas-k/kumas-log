@@ -1,5 +1,5 @@
 ---
-title: "🌐️ HTTP의 상태코드의 종류와 의미"
+title: 'HTTP의 상태코드의 종류와 의미'
 date: 2022-01-31
 tags:
   - http

@@ -1,5 +1,5 @@
 ---
-title: "💥 비동기를 값으로 다루는 Promise"
+title: '비동기를 값으로 다루는 Promise'
 date: 2021-10-27
 tags:
   - javascript
@@ -22,9 +22,9 @@ Promise는 다음 중 하나의 상태를 가집니다.
 Promise는 resolve, reject 두 인자를 매개변수로 받습니다. 이 두 함수는 promise를 이행하거나 거부합니다. 비동기 작업이 모두 끝난 뒤 resolve를 호출해서 이행하고, 오류가 생겼다면 reject를 이용하여 거부할 수 있습니다. 또한 Promise 객체에는 비동기 상태가 담겨있기 때문에 비동기 처리 시점을 명확하게 표시할 수 있습니다.
 
 ```jsx
-const promise = new Promise((resolve, reject) => {});
+const promise = new Promise((resolve, reject) => {})
 
-console.log(promise); // Promise {status: "pending"}
+console.log(promise) // Promise {status: "pending"}
 ```
 
 ### then, catch, finally
@@ -33,21 +33,21 @@ Promise가 종료되면 then과 catch로 resolve와 reject의 값을 꺼내어 �
 
 ```jsx
 const promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => resolve("성공"), 1000);
-}); // 10초 후에 결과 출력
+  setTimeout(() => resolve('성공'), 1000)
+}) // 10초 후에 결과 출력
 
-promise1.then(console.log); // 성공
+promise1.then(console.log) // 성공
 
 const promise2 = new Promise((resolve, reject) => {
-  setTimeout(() => reject("실패"), 1000);
-}); // 10초 후에 결과 출력
+  setTimeout(() => reject('실패'), 1000)
+}) // 10초 후에 결과 출력
 
-promise2.then(console.log); // 오류가 발생했지만 catch 항목이 없어서 error 발생
+promise2.then(console.log) // 오류가 발생했지만 catch 항목이 없어서 error 발생
 // Uncaught (in promise) 실패
 promise2
   .then(console.log)
   .catch(console.error) // 실패
-  .finally(() => console.log("종료됨")); // 이행이나 거부와 상관없이 무조건 실행됨
+  .finally(() => console.log('종료됨')) // 이행이나 거부와 상관없이 무조건 실행됨
 ```
 
 ### 메서드 체이닝
@@ -75,16 +75,16 @@ Promise 메서드 종류
 ```jsx
 // Promise.all
 
-const promise1 = new Promise(resolve => setTimeout(resolve, 3000, "첫번째"));
+const promise1 = new Promise((resolve) => setTimeout(resolve, 3000, '첫번째'))
 
-const promise2 = new Promise(resolve => setTimeout(resolve, 2000, "두번째"));
+const promise2 = new Promise((resolve) => setTimeout(resolve, 2000, '두번째'))
 
-const promise3 = new Promise(resolve => setTimeout(resolve, 1000, "세번째"));
+const promise3 = new Promise((resolve) => setTimeout(resolve, 1000, '세번째'))
 
-const allPromise = Promise.all([promise1, promise2, promise3]);
+const allPromise = Promise.all([promise1, promise2, promise3])
 allPromise
   .then(console.log) // 모든 promise를 이행한뒤 출력
-  .catch(console.error);
+  .catch(console.error)
 // [ '첫번째', '두번째', '세번째']
 ```
 
@@ -92,18 +92,18 @@ allPromise
 // Promise.rece
 
 const promise1 = new Promise((resolve, reject) =>
-  setTimeout(reject, 3000, "첫번째")
-);
+  setTimeout(reject, 3000, '첫번째'),
+)
 
-const promise2 = new Promise(resolve => setTimeout(resolve("두번째"), 2000));
+const promise2 = new Promise((resolve) => setTimeout(resolve('두번째'), 2000))
 
-const promise3 = new Promise(resolve => setTimeout(resolve("세번째"), 1000));
+const promise3 = new Promise((resolve) => setTimeout(resolve('세번째'), 1000))
 
-const recePromise = Promise.race([promise1, promise2, promise3]);
+const recePromise = Promise.race([promise1, promise2, promise3])
 
 recePromise
   .then(console.log) // 가장 먼저 끝난 세번째만 반환하고 종료
-  .catch(console.error); // 첫번째가 이행되지 않아서 오류발생안함
+  .catch(console.error) // 첫번째가 이행되지 않아서 오류발생안함
 // [ '세번째']
 ```
 

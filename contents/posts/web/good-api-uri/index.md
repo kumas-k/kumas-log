@@ -1,5 +1,5 @@
 ---
-title: '🔥️ 좋은 API URI 설계하기'
+title: '좋은 API URI 설계하기'
 date: 2022-02-01
 tags:
   - http

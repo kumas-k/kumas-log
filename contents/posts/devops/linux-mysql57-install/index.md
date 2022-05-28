@@ -1,5 +1,5 @@
 ---
-title: "✨ Linux MySQL 5.7 설치"
+title: 'Linux MySQL 5.7 설치'
 date: 2021-05-15
 tags:
   - linux

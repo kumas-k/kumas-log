@@ -1,5 +1,5 @@
 ---
-title: "🐛 MySQL에서 한글 깨짐"
+title: 'MySQL에서 한글 깨짐'
 date: 2021-06-04
 tags:
   - spring

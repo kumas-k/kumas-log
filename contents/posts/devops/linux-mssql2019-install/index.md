@@ -1,5 +1,5 @@
 ---
-title: "✨ Linux MSSQL 2019 설치"
+title: 'Linux MSSQL 2019 설치'
 date: 2021-05-19
 tags:
   - linux

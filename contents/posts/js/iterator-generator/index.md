@@ -1,5 +1,5 @@
 ---
-title: "🧠️ 이터레이터와 제너레이터"
+title: '️이터레이터와 제너레이터'
 date: 2021-09-25
 tags:
   - javascript
@@ -20,21 +20,21 @@ ES6에서 추가된 이터레이터(iterator)와 제너레이터(generator)를 �
 for... of은 이터레이터 객체의 done 값이 true가 될 때까지 반복하며 value을 출력해 주는 방식입니다.
 
 ```jsx
-const arr = [1, 2, 3];
-for (const a of arr) console.log(a); // 1 2 3
+const arr = [1, 2, 3]
+for (const a of arr) console.log(a) // 1 2 3
 
 // 인덱스 방식으로 접근하지 않기 때문에 set, map에iter.next(); // 1서도 사용가능
-const set = new Set([1, 2, 3]);
-for (const a of set) console.log(a); // 1 2 3
+const set = new Set([1, 2, 3])
+for (const a of set) console.log(a) // 1 2 3
 
 const map = new Map([
-  ["a", 1],
-  ["b", 2],
-  ["c", 3],
-]);
-for (const a of map.keys()) console.log(a); // a b c
-for (const a of map.values()) console.log(a); // 1 2 3
-for (const a of map.entries()) console.log(a); // ['a', 1] ['b', 2] ['c', 3]
+  ['a', 1],
+  ['b', 2],
+  ['c', 3],
+])
+for (const a of map.keys()) console.log(a) // a b c
+for (const a of map.values()) console.log(a) // 1 2 3
+for (const a of map.entries()) console.log(a) // ['a', 1] ['b', 2] ['c', 3]
 ```
 
 ### 메서드 호출
@@ -42,14 +42,14 @@ for (const a of map.entries()) console.log(a); // ['a', 1] ['b', 2] ['c', 3]
 배열의 인덱스를 순회하는 것이 아닌 이터레이터의 next 메서드를 이용하는 것이기 때문에 이런 식으로도 사용이 가능합니다.
 
 ```jsx
-const arr = [1, 2, 3];
-const iter = arr[Symbol.iterator](); // Symbol.iterator을 호출하여 반환된 이터레이터를 할당
-iter.next(); // {value: 1, done: false};
-iter.next(); // {value: 2, done: false};
-iter.next(); // {value: 3, done: false};
-iter.next(); // {value: undefined, done: true};
-iter.next(); // {value: undefined, done: true};
-iter.next(); // {value: undefined, done: true};
+const arr = [1, 2, 3]
+const iter = arr[Symbol.iterator]() // Symbol.iterator을 호출하여 반환된 이터레이터를 할당
+iter.next() // {value: 1, done: false};
+iter.next() // {value: 2, done: false};
+iter.next() // {value: 3, done: false};
+iter.next() // {value: undefined, done: true};
+iter.next() // {value: undefined, done: true};
+iter.next() // {value: undefined, done: true};
 ```
 
 ### 커스텀 이터레이터
@@ -60,23 +60,23 @@ iter.next(); // {value: undefined, done: true};
 const iterable = {
   [Symbol.iterator]() {
     // 호출할수 있는 이터레이터 메서드 작성
-    let i = 3;
+    let i = 3
     return {
       next() {
         // next 메서드 작성
         return i == 0
           ? { vlaue: undefined, done: true }
-          : { value: i--, done: false };
+          : { value: i--, done: false }
       },
       [Symbol.iterator]() {
         // next 호출 후에도 자기 자신을 반환하도록
-        return this;
+        return this
       },
-    };
+    }
   },
-};
+}
 
-for (const a of iterable) console.log(a); // 3 2 1
+for (const a of iterable) console.log(a) // 3 2 1
 ```
 
 ### 제너레이터
@@ -86,24 +86,24 @@ for (const a of iterable) console.log(a); // 3 2 1
 ```jsx
 function* iterable(i = 0) {
   while (true) {
-    yield i++;
-    if (i > 100) return undefined;
+    yield i++
+    if (i > 100) return undefined
   }
 }
 
-const iter = iterable();
-iter.next(); // {value: 0, done: false};
-iter.next(); // {value: 1, done: false};
-iter.next(); // {value: 2, done: false};
+const iter = iterable()
+iter.next() // {value: 0, done: false};
+iter.next() // {value: 1, done: false};
+iter.next() // {value: 2, done: false};
 
-const iter2 = iterable(10); // 제너레이터에 매개변수 전달
-iter2.next(); // {value: 10, done: false};
-iter2.next(); // {value: 11, done: false};
-iter2.next(); // {value: 12, done: false};
+const iter2 = iterable(10) // 제너레이터에 매개변수 전달
+iter2.next() // {value: 10, done: false};
+iter2.next() // {value: 11, done: false};
+iter2.next() // {value: 12, done: false};
 
 for (const a of iter) {
   // 이터레이터가 존재하기 때문에 for of 문도 사용이 가능합니다.
-  console.log(a); // 3 4 5 .... 100
+  console.log(a) // 3 4 5 .... 100
 }
 ```
 

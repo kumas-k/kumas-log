@@ -1,5 +1,5 @@
 ---
-title: "💠 Spring에서 JSON사용하기"
+title: 'Spring에서 JSON사용하기'
 date: 2021-07-23
 tags:
   - spring
@@ -19,25 +19,25 @@ jquery을 이용하여 ajax로 객채 배열을 직렬화 시켜 String 타입�
 
 ```jsx
 let person = [
-  { name: "James", age: 25, skill: "HTML" },
-  { name: "John", age: 22, skill: "CSS" },
-  { name: "Robert", age: 21, skill: "JavaScript" },
-];
-let jsonData = JSON.stringify(person); // JSON 타입으로 데이터 직렬화
+  { name: 'James', age: 25, skill: 'HTML' },
+  { name: 'John', age: 22, skill: 'CSS' },
+  { name: 'Robert', age: 21, skill: 'JavaScript' },
+]
+let jsonData = JSON.stringify(person) // JSON 타입으로 데이터 직렬화
 //"[{\\"name\\":\\"James\\",\\"age\\":25,\\"skill\\":\\"HTML\\"}, ...]"
 
 $.ajax({
-  url: "getJson.do",
-  type: "POST",
+  url: 'getJson.do',
+  type: 'POST',
   data: { jsonData: jsonData },
-  dataType: "json",
+  dataType: 'json',
   success: function () {
     //
   },
   error: function () {
     //
   },
-});
+})
 ```
 
 ### spring

@@ -1,5 +1,5 @@
 ---
-title: '👌 macOS 한영 전환 단축키 변경하기 (M1)'
+title: 'macOS 한영 전환 단축키 변경하기 (M1)'
 date: 2022-01-23
 tags:
   - mac

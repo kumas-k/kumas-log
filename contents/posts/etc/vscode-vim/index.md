@@ -1,5 +1,5 @@
 ---
-title: "🕵️ VSCode에서 vim 설치 및 IM 세팅하기"
+title: 'VSCode에서 vim 설치 및 IM 세팅하기'
 date: 2021-09-30
 tags:
   - vscode

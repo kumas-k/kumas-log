@@ -1,5 +1,5 @@
 ---
-title: "🧠 유클리드 호제법"
+title: '유클리드 호제법'
 date: 2021-11-22
 tags:
   - algorithm
@@ -16,7 +16,7 @@ draft: false
 
 ```jsx
 function gcd(min, max) {
-  return min % max ? gcd(max, min % max) : max;
+  return min % max ? gcd(max, min % max) : max
 }
 ```
 
@@ -26,7 +26,7 @@ function gcd(min, max) {
 
 ```jsx
 function lcm(min, max) {
-  return (min * max) / gcd(min, max);
+  return (min * max) / gcd(min, max)
 }
 ```
 

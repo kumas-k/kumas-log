@@ -1,5 +1,5 @@
 ---
-title: "🙈 Nodemon 모니터링 파일 설정하기"
+title: 'Nodemon 모니터링 파일 설정하기'
 date: 2021-11-11
 tags:
   - node

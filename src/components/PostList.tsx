@@ -32,7 +32,7 @@ const PostList: FunctionComponent<PostProps> = ({ posts }) => {
                     ))}
                 </div>
               </div>
-              <div className="text-gray-700 line-clamp-2">{excerpt}</div>
+              <div className="text-gray-700 line-clamp-3">{excerpt}</div>
             </Link>
           </article>
         ),

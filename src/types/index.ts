@@ -45,6 +45,13 @@ export type PostTemplateProps = {
     posts: {
       edges: ContentItemProps[]
     }
+    site: {
+      siteMetadata: {
+        comment: {
+          utterances: string
+        }
+      }
+    }
   }
 }
 
@@ -75,4 +82,14 @@ export type HeadProps = {
       keywords: Array<string>
     }
   }
+}
+
+export type CommentProps = {
+  src: string
+  repo: string
+  'issue-term': string
+  label: string
+  theme: string
+  crossorigin: string
+  async: string
 }

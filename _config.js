@@ -25,7 +25,7 @@ module.exports = {
     `BackEnd`,
   ],
   comment: {
-    utterances: '',
+    utterances: 'devKumas/kumas.dev',
   },
   configs: {
     countOfInitialPost: 10,

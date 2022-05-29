@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, createRef, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { CommentProps } from '../types'
 
 import Head from 'components/Head'
 import { PostTemplateProps } from 'types'
@@ -8,6 +8,11 @@ import { PostTemplateProps } from 'types'
 const PostTemplate: FunctionComponent<PostTemplateProps> = ({
   data: {
     posts: { edges },
+    site: {
+      siteMetadata: {
+        comment: { utterances },
+      },
+    },
   },
 }) => {
   const {
@@ -16,6 +21,29 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
       frontmatter: { title, date, update, tags },
     },
   } = edges[0]
+
+  const element = createRef<HTMLDivElement>()
+
+  useEffect(() => {
+    if (element.current === null) return
+
+    const comment: HTMLScriptElement = document.createElement('script')
+    const attributes: CommentProps = {
+      src: 'https://utteranc.es/client.js',
+      repo: utterances,
+      'issue-term': 'pathname',
+      label: 'comment',
+      theme: 'github-light',
+      crossorigin: 'anonymous',
+      async: 'true',
+    }
+
+    Object.entries(attributes).forEach(([key, value]) => {
+      comment.setAttribute(key, value)
+    })
+
+    element.current.appendChild(comment)
+  }, [])
 
   return (
     <>
@@ -37,6 +65,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+      <div ref={element} />
     </>
   )
 }
@@ -58,6 +87,13 @@ export const profileQuery = graphql`
             update(formatString: "MMM DD, YYYY", locale: "kr")
             tags
           }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        comment {
+          utterances
         }
       }
     }

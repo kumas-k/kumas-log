@@ -17,18 +17,19 @@ const PostList: FunctionComponent<PostProps> = ({ posts }) => {
           <article
             id={id}
             className="mb-8 p-4 hover:opacity-100 transition duration-500 opacity-80"
+            key={id}
           >
             <Link to={slug}>
               <h2 className="text-xl font-bold">{title}</h2>
               <div className="flex text-xs text-gray-500 my-2 ">
                 <div>
-                  <span>{date}</span>
+                  <span key={id}>{date}</span>
                   {update && <span>{` (Updated: ${update})`}</span>}
                 </div>
                 <div className="before:content-['·'] mx-1">
                   {tags &&
-                    tags.map((tag) => (
-                      <span className="mr-1">{` #${tag}`}</span>
+                    tags.map((tag, index) => (
+                      <span className="mr-1" key={index}>{` #${tag}`}</span>
                     ))}
                 </div>
               </div>

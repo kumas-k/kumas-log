@@ -3,7 +3,6 @@ title: '이차원 배열 행과 열 바꾸기'
 date: 2021-11-22
 tags:
   - algorithm
-draft: false
 ---
 
 ## Python zip

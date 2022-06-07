@@ -5,7 +5,6 @@ tags:
   - linux
   - web
   - was
-draft: false
 ---
 
 ## apache2 설치

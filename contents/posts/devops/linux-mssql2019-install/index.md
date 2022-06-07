@@ -4,7 +4,6 @@ date: 2021-05-19
 tags:
   - linux
   - database
-draft: false
 ---
 
 ## MSSQL 설치

@@ -4,7 +4,6 @@ date: 2021-06-04
 tags:
   - spring
   - gradle
-draft: false
 ---
 
 ## Gradle 프로젝트

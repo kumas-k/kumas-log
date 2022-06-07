@@ -4,7 +4,6 @@ date: 2021-11-11
 tags:
   - hexo
   - blog
-draft: false
 ---
 
 ## 깃허브 블로그 만들기

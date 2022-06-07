@@ -6,7 +6,6 @@ tags:
   - javascript
   - functional
 series: '함수형 프로그래밍과 JavaScript ES6'
-draft: false
 ---
 
 ## 비동기 상황이란?

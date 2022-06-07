@@ -3,7 +3,6 @@ title: '일급함수란 무엇인가?'
 date: 2021-09-25
 tags:
   - javascript
-draft: false
 ---
 
 ## 일급함수란?

@@ -3,7 +3,6 @@ title: '유클리드 호제법'
 date: 2021-11-22
 tags:
   - algorithm
-draft: false
 ---
 
 ## 유클리드 호제법이란?

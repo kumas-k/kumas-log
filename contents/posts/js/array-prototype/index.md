@@ -4,7 +4,6 @@ date: 2021-09-22
 tags:
   - javascript
   - prototype
-draft: false
 ---
 
 ## Array.prototype

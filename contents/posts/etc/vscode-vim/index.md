@@ -4,7 +4,6 @@ date: 2021-09-30
 tags:
   - vscode
   - vim
-draft: false
 ---
 
 ## vim이란?

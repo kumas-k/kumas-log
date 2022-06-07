@@ -4,7 +4,6 @@ date: 2021-09-25
 tags:
   - javascript
   - es6+
-draft: false
 ---
 
 ## 이터레이터와 제너레이터

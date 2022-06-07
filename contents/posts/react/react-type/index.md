@@ -3,7 +3,6 @@ title: 'React의 종류'
 date: 2021-09-14
 tags:
   - react
-draft: false
 ---
 
 ## Function? Class?

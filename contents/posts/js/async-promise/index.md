@@ -3,7 +3,6 @@ title: '비동기를 값으로 다루는 Promise'
 date: 2021-10-27
 tags:
   - javascript
-draft: false
 ---
 
 ## Promise란?

@@ -4,7 +4,6 @@ date: 2021-05-15
 tags:
   - linux
   - database
-draft: false
 ---
 
 ## MySQL 설치

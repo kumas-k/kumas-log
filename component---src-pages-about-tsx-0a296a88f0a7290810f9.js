@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkkumas_dev=self.webpackChunkkumas_dev||[]).push([[49],{5897:function(e,t,n){n.r(t);var u=n(7294),a=n(5829);t.default=function(){return u.createElement(u.Fragment,null,u.createElement(a.Z,null),u.createElement("div",{className:"my-12"},"About"))}}}]);
-//# sourceMappingURL=component---src-pages-about-tsx-0a296a88f0a7290810f9.js.map

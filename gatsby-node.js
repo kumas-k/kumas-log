@@ -47,6 +47,9 @@ exports.createPages = ({ actions, graphql }) => {
             fields {
               slug
             }
+            frontmatter {
+              draft
+            }
           }
         }
       }
@@ -58,18 +61,21 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.posts.edges
 
-    posts.forEach(
-      ({
+    for (const post of posts) {
+      const {
         node: {
           fields: { slug },
+          frontmatter: { draft },
         },
-      }) => {
-        createPage({
-          path: slug,
-          component: postTemplate,
-          context: { slug },
-        })
-      },
-    )
+      } = post
+
+      if (draft) if (process.env.NODE_ENV != 'development') continue
+
+      createPage({
+        path: slug,
+        component: postTemplate,
+        context: { slug },
+      })
+    }
   })
 }

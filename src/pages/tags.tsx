@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useMemo } from 'react'
-import { useEffect, useState } from 'react'
+import React, { FunctionComponent, useEffect, useMemo } from 'react'
+import { useState } from 'react'
 import { graphql } from 'gatsby'
 
 import PostList from 'components/PostList'
@@ -11,9 +11,11 @@ const Tags: FunctionComponent<TagsProps> = ({
     allMarkdownRemark: { group },
   },
 }) => {
-  const [targetTag, setTargetTag] = useState<string>(
-    location.hash.split('#')[1] ?? group[0].fieldValue,
-  )
+  const [targetTag, setTargetTag] = useState('')
+
+  useEffect(() => {
+    setTargetTag(location.hash.split('#')[1] ?? group[0].fieldValue)
+  }, [])
 
   const tagPosts = useMemo(
     () => group.filter((g) => g.fieldValue === targetTag)[0]?.edges,

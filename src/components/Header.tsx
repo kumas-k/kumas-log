@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
+import { FontAwesomeIcon as Fa } from '@fortawesome/react-fontawesome'
+import { faTags, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 
 type HeaderProps = {
   site: {
@@ -33,9 +35,21 @@ const Header: FunctionComponent = () => {
           <div className="text-xl md:text-2xl font-bold">{title}</div>
         </Link>
         <nav>
-          <ol className="flex text-sm">
+          <ol className="flex text-gray-400 ">
+            <Link to="/tags">
+              <li className="mx-3 my-5 hover:text-gray-700">
+                <Fa icon={faTags} />
+              </li>
+            </Link>
+            <Link to="/search">
+              <li className="mx-3 my-5 hover:text-gray-700">
+                <Fa icon={faSearch} />
+              </li>
+            </Link>
             <Link to="/about">
-              <li className="mx-3 my-5">About</li>
+              <li className="mx-3 my-5 hover:text-gray-700">
+                <Fa icon={faUser} />
+              </li>
             </Link>
           </ol>
         </nav>

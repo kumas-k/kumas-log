@@ -1,13 +1,11 @@
 import React, { FunctionComponent, createRef, useEffect } from 'react'
-import { graphql } from 'gatsby'
-import { CommentProps } from '../types'
-
+import { graphql, Link } from 'gatsby'
 import Head from 'components/Head'
 import { PostTemplateProps } from 'types'
 
 const PostTemplate: FunctionComponent<PostTemplateProps> = ({
   data: {
-    posts: { edges },
+    allMarkdownRemark: { edges },
     site: {
       siteMetadata: {
         comment: { utterances },
@@ -28,7 +26,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
     if (element.current === null) return
 
     const comment: HTMLScriptElement = document.createElement('script')
-    const attributes: CommentProps = {
+    const attributes = {
       src: 'https://utteranc.es/client.js',
       repo: utterances,
       'issue-term': 'pathname',
@@ -57,7 +55,11 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
           </div>
           <div className="before:content-['·'] mx-1">
             {tags &&
-              tags.map((tag) => <span className="mr-1">{` #${tag}`}</span>)}
+              tags.map((tag, index) => (
+                <span className="mx-1 hover:text-gray-900" key={index}>
+                  <Link to={`/tags#${tag}`}>{`#${tag}`}</Link>
+                </span>
+              ))}
           </div>
         </div>
         <div
@@ -71,8 +73,8 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
 }
 
 export const profileQuery = graphql`
-  query Post($slug: String) {
-    posts: allMarkdownRemark(
+  query ($slug: String) {
+    allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { fields: { slug: { eq: $slug } } }
     ) {
@@ -80,7 +82,6 @@ export const profileQuery = graphql`
         node {
           id
           html
-          timeToRead
           frontmatter {
             title
             date(formatString: "MMM DD, YYYY", locale: "kr")

@@ -8,7 +8,7 @@ const Head: FunctionComponent<MetaProps> = ({ title, description, cover }) => {
     site: { siteMetadata },
   } = useStaticQuery<HeadProps>(
     graphql`
-      {
+      query {
         site {
           siteMetadata {
             title

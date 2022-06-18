@@ -5,20 +5,25 @@ import Head from 'components/Head'
 import PostList from 'components/PostList'
 import { IndexProps } from 'types'
 
-const IndexPage: FunctionComponent<IndexProps> = ({ data: { posts } }) => {
+const IndexPage: FunctionComponent<IndexProps> = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
   return (
     <>
       <Head />
-      <PostList posts={posts} />
+      <PostList edges={edges} />
     </>
   )
 }
 export default IndexPage
 
 export const indexQuery = graphql`
-  {
-    posts: allMarkdownRemark(
+  query {
+    allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      filter: { fields: { slug: { regex: "/^/[a-zA-Z]/" } } }
     ) {
       edges {
         node {

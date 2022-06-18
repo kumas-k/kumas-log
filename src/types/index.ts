@@ -1,56 +1,14 @@
-export type FrontmatterProps = {
-  title: string
-  date: string
-  update: string
-  tags: Array<string>
-}
-
-export type ContentProps = {
-  node: {
-    id: string
-    excerpt: string
-    fields: {
-      slug: string
-    }
-    timeToRead: number
-    frontmatter: FrontmatterProps
-  }
-}
-
-export type ContentItemProps = {
-  node: {
-    id: string
-    html: string
-    timeToRead: number
-    frontmatter: FrontmatterProps
-  }
-}
-
-export type IndexProps = {
-  data: {
-    posts: {
-      edges: ContentProps[]
-    }
-  }
-}
-
-export type PostProps = {
-  posts: {
-    edges: ContentProps[]
-  }
-}
-
-export type PostTemplateProps = {
-  data: {
-    posts: {
-      edges: ContentItemProps[]
-    }
-    site: {
-      siteMetadata: {
-        comment: {
-          utterances: string
-        }
+export type HeadProps = {
+  site: {
+    siteMetadata: {
+      title: string
+      author: string
+      description: string
+      social: {
+        email: string
       }
+      cover: string
+      keywords: string[]
     }
   }
 }
@@ -69,27 +27,91 @@ export type MetaProps = {
   cover?: string
 }
 
-export type HeadProps = {
-  site: {
-    siteMetadata: {
-      title: string
-      author: string
-      description: string
-      social: {
-        email: string
-      }
-      cover: string
-      keywords: Array<string>
+type FrontmatterProps = {
+  title: string
+  date: string
+  update: string
+  tags: Array<string>
+}
+
+type ContentProps = {
+  node: {
+    id: string
+    excerpt: string
+    fields: {
+      slug: string
+    }
+    frontmatter: FrontmatterProps
+  }
+}
+
+type SearchContentProps = ContentProps & {
+  node: {
+    rawMarkdownBody: string
+  }
+}
+
+type Group = {
+  fieldValue: string
+  totalCount: number
+  edges: ContentProps[]
+}
+
+type ContentItemProps = {
+  node: {
+    id: string
+    html: string
+    frontmatter: FrontmatterProps
+  }
+}
+
+export type IndexProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: ContentProps[]
     }
   }
 }
 
-export type CommentProps = {
-  src: string
-  repo: string
-  'issue-term': string
-  label: string
-  theme: string
-  crossorigin: string
-  async: string
+export type AboutProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: ContentItemProps[]
+    }
+  }
+}
+
+export type TagsProps = {
+  data: {
+    allMarkdownRemark: {
+      group: Group[]
+    }
+  }
+}
+
+export type SearchProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: SearchContentProps[]
+    }
+  }
+}
+
+export type PostListProps = {
+  edges: ContentProps[]
+}
+
+export type PostTemplateProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: ContentItemProps[]
+    }
+    site: {
+      siteMetadata: {
+        comment: {
+          utterances: string
+        }
+      }
+    }
+  }
 }

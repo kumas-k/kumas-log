@@ -1,11 +1,11 @@
 import { Link } from 'gatsby'
 import React, { FunctionComponent } from 'react'
-import { ContentProps, PostProps } from 'types'
+import { PostListProps } from 'types'
 
-const PostList: FunctionComponent<PostProps> = ({ posts }) => {
+const PostList: FunctionComponent<PostListProps> = ({ edges }) => {
   return (
     <>
-      {posts.edges.map(
+      {edges?.map(
         ({
           node: {
             id,
@@ -13,11 +13,10 @@ const PostList: FunctionComponent<PostProps> = ({ posts }) => {
             fields: { slug },
             frontmatter: { title, date, update, tags },
           },
-        }: ContentProps) => (
+        }) => (
           <article
-            id={id}
-            className="mb-8 p-4 hover:opacity-100 transition duration-500 opacity-80"
             key={id}
+            className="mb-8 p-4 hover:opacity-100 transition duration-500 opacity-80"
           >
             <Link to={slug}>
               <h2 className="text-xl font-bold">{title}</h2>
@@ -29,7 +28,7 @@ const PostList: FunctionComponent<PostProps> = ({ posts }) => {
                 <div className="before:content-['·'] mx-1">
                   {tags &&
                     tags.map((tag, index) => (
-                      <span className="mr-1" key={index}>{` #${tag}`}</span>
+                      <span className="mx-1" key={index}>{`#${tag}`}</span>
                     ))}
                 </div>
               </div>

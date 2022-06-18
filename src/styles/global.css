@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+input:focus {
+  outline: none;
+}
+
 .wrapper {
   width: 100%;
   margin-right: auto;

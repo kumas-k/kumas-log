@@ -1,6 +1,7 @@
 const path = require('path')
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { node } = require('prop-types')
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
@@ -41,7 +42,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   // Get All Markdown File For Paging
   return graphql(`
-    {
+    query {
       posts: allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -66,18 +67,16 @@ exports.createPages = ({ actions, graphql }) => {
 
     for (const post of posts) {
       const {
-        node: {
-          fields: { slug },
-          frontmatter: { draft },
-        },
+        node: { fields, frontmatter },
       } = post
 
-      if (draft) if (process.env.NODE_ENV != 'development') continue
+      if (frontmatter.draft) if (process.env.NODE_ENV != 'development') continue
+      if (!node?.slug) continue
 
       createPage({
-        path: slug,
+        path: fields.slug,
         component: postTemplate,
-        context: { slug },
+        context: { slug: fields.slug },
       })
     }
   })

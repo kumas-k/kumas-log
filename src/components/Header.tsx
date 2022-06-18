@@ -32,7 +32,7 @@ const Header: FunctionComponent = () => {
     <header className="sticky top-0 z-50">
       <div className="wrapper flex items-center justify-between bg-white ">
         <Link to="/">
-          <div className="text-xl md:text-2xl font-bold">{title}</div>
+          <div className="text-xl font-bold">{title}</div>
         </Link>
         <nav>
           <ol className="flex text-gray-400 ">

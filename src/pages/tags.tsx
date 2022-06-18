@@ -25,28 +25,24 @@ const Tags: FunctionComponent<TagsProps> = ({
   return (
     <>
       <Head />
-      <div className="mt-4">
-        <div className="my-4 mx-6">
-          <ul className="flex flex-wrap justify-center">
-            {group.map((g) => (
-              <li className="mx-3" key={g.fieldValue}>
-                <span
-                  className={`cursor-pointer font-medium ${
-                    g.fieldValue === targetTag
-                      ? 'text-gray-900'
-                      : 'text-gray-300'
-                  } hover:text-gray-900`}
-                  onClick={() => setTargetTag(g.fieldValue)}
-                >
-                  <a href={`#${g.fieldValue}`}>{g.fieldValue}</a>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <ul className="mb-8 flex flex-wrap justify-center">
+        {group.map((g) => (
+          <li className="mx-3" key={g.fieldValue}>
+            <span
+              className={`cursor-pointer text-sm ${
+                g.fieldValue === targetTag
+                  ? 'text-gray-900 font-semibold'
+                  : 'text-gray-300'
+              } hover:text-gray-900 hover:font-semibold `}
+              onClick={() => setTargetTag(g.fieldValue)}
+            >
+              <a href={`#${g.fieldValue}`}>{g.fieldValue}</a>
+            </span>
+          </li>
+        ))}
+      </ul>
 
-        <PostList edges={tagPosts} />
-      </div>
+      <PostList edges={tagPosts} />
     </>
   )
 }

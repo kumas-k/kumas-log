@@ -34,46 +34,42 @@ const Search: FunctionComponent<SearchProps> = ({ data }) => {
   return (
     <>
       <Head />
-      <div>
-        <div>
-          <div className="my-8 flex justify-center items-center text-gray-300">
-            <Fa icon={faSearch} />
-            <input
-              className="mx-2 text-gray-900 "
-              type="text"
-              value={value}
-              placeholder="Search"
-              autoComplete="off"
-              autoFocus
-              onChange={(e) => setValue(e.currentTarget.value)}
-            />
-            <div className="text-sm">
-              <span
-                className={`${
-                  isTitleOnly ? 'text-gray-900' : ''
-                } mx-2 cursor-pointer`}
-                onClick={() => setIsTitleOnly(true)}
-              >
-                in Title
-              </span>
-              <span
-                className={`${
-                  !isTitleOnly ? 'text-gray-900' : ''
-                } mx-2 cursor-pointer`}
-                onClick={() => setIsTitleOnly(false)}
-              >
-                in Title+Content
-              </span>
-            </div>
+      <div className="mb-8 flex justify-center items-center text-gray-300 text-sm">
+        <Fa icon={faSearch} />
+        <input
+          className="mx-2 text-gray-900 "
+          type="text"
+          value={value}
+          placeholder="Search"
+          autoComplete="off"
+          autoFocus
+          onChange={(e) => setValue(e.currentTarget.value)}
+        />
+        <div className="flex text-xs">
+          <div
+            className={`${
+              isTitleOnly ? 'text-gray-900' : ''
+            } mx-2 cursor-pointer`}
+            onClick={() => setIsTitleOnly(true)}
+          >
+            in Title
           </div>
-
-          {value !== '' && !filteredPosts.length ? (
-            <span>No search results</span>
-          ) : (
-            <PostList edges={value === '' ? edges : filteredPosts} />
-          )}
+          <div
+            className={`${
+              !isTitleOnly ? 'text-gray-900' : ''
+            } mx-2 cursor-pointer`}
+            onClick={() => setIsTitleOnly(false)}
+          >
+            in Title+Content
+          </div>
         </div>
       </div>
+
+      {value !== '' && !filteredPosts.length ? (
+        <span>No search results</span>
+      ) : (
+        <PostList edges={value === '' ? edges : filteredPosts} />
+      )}
     </>
   )
 }

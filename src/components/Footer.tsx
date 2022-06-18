@@ -28,7 +28,7 @@ const Footer: FunctionComponent = () => {
 
   return (
     <footer>
-      <div className="wrapper text-center text-gray-500 text-xs py-5">
+      <div className="wrapper text-center text-gray-500 text-xs my-5">
         © {YEAR} {author} | Theme by&nbsp;
         <a href="https://github.com/devKumas">devKumas</a>
         <span> | Built with </span>

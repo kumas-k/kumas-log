@@ -18,27 +18,25 @@ const About: FunctionComponent<AboutProps> = ({
   return (
     <>
       <Head />
-      <div className="my-10">
-        <h1 className="text-3xl font-bold">{title}</h1>
-        <div className="flex text-xs text-gray-500 my-5">
-          <div>
-            <span>{date}</span>
-            {update && <span>{` (Updated: ${update})`}</span>}
-          </div>
-          <div className="before:content-['·'] mx-1">
-            {tags &&
-              tags.map((tag, index) => (
-                <span className="mx-1 hover:text-gray-900" key={index}>
-                  {`#${tag}`}
-                </span>
-              ))}
-          </div>
+      <h1 className="text-3xl font-bold">{title}</h1>
+      <div className="flex text-xs text-gray-500 my-5">
+        <div>
+          <span>{date}</span>
+          {update && <span>{` (Updated: ${update})`}</span>}
         </div>
-        <div
-          className="markdown-content mt-10"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div className="before:content-['·'] mx-1">
+          {tags &&
+            tags.map((tag, index) => (
+              <span className="mx-1 hover:text-gray-900" key={index}>
+                {`#${tag}`}
+              </span>
+            ))}
+        </div>
       </div>
+      <div
+        className="markdown-content mt-12"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </>
   )
 }

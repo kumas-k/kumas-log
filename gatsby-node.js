@@ -71,7 +71,7 @@ exports.createPages = ({ actions, graphql }) => {
       } = post
 
       if (frontmatter.draft) if (process.env.NODE_ENV != 'development') continue
-      if (!node?.slug) continue
+      if (!fields?.slug) continue
 
       createPage({
         path: fields.slug,

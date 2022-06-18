@@ -47,15 +47,19 @@ const Search: FunctionComponent<SearchProps> = ({ data }) => {
               autoFocus
               onChange={(e) => setValue(e.currentTarget.value)}
             />
-            <div className="cursor-pointer text-sm">
+            <div className="text-sm">
               <span
-                className={`${isTitleOnly ? 'text-gray-900' : ''} mx-2`}
+                className={`${
+                  isTitleOnly ? 'text-gray-900' : ''
+                } mx-2 cursor-pointer`}
                 onClick={() => setIsTitleOnly(true)}
               >
                 in Title
               </span>
               <span
-                className={`${!isTitleOnly ? 'text-gray-900' : ''} mx-2`}
+                className={`${
+                  !isTitleOnly ? 'text-gray-900' : ''
+                } mx-2 cursor-pointer`}
                 onClick={() => setIsTitleOnly(false)}
               >
                 in Title+Content

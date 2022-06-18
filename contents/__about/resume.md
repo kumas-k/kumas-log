@@ -5,6 +5,7 @@ update: 2022-06-18
 tags:
   - typescript
   - kubernetes
+draft: true
 ---
 
 ## 김환수(쿠마스)

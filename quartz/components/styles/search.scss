@@ -4,6 +4,7 @@
   min-width: fit-content;
   max-width: 14rem;
   flex-grow: 0.3;
+  overscroll-behavior: none;
 
   & > #search-icon {
     background-color: var(--lightgray);

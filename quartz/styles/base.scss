@@ -7,6 +7,10 @@ html {
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
+
+  &.global-container-active {
+    overflow: hidden;
+  }
 }
 
 body,
@@ -161,7 +165,9 @@ a {
       box-sizing: border-box;
       padding: 0 4rem;
       position: fixed;
+      height: calc(100% - $topSpacing);
       @media all and (max-width: $fullPageWidth) {
+        height: auto;
         position: initial;
         flex-direction: row;
         padding: 0;
@@ -180,7 +186,11 @@ a {
 
     & .sidebar.right {
       right: calc(calc(100vw - $pageWidth) / 2 - $sidePanelWidth);
-      flex-wrap: wrap;
+
+      @media all and (max-width: $fullPageWidth) {
+        flex-wrap: wrap;
+      }
+
       & > * {
         @media all and (max-width: $fullPageWidth) {
           flex: 1;
@@ -487,12 +497,16 @@ div:has(> .overflow) {
 
 ul.overflow,
 ol.overflow {
-  max-height: 400;
   overflow-y: auto;
+  scrollbar-width: none;
 
   // clearfix
   content: "";
   clear: both;
+
+  @media all and (max-width: $mobileBreakpoint) {
+    max-height: 400;
+  }
 
   & > li:last-of-type {
     margin-bottom: 30px;

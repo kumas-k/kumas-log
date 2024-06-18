@@ -174,6 +174,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 
   function hideSearch() {
     container?.classList.remove("active")
+    document.documentElement.classList.remove("global-container-active")
     if (searchBar) {
       searchBar.value = "" // clear the input when we dismiss the search
     }
@@ -199,6 +200,7 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
       sidebar.style.zIndex = "1"
     }
     container?.classList.add("active")
+    document.documentElement.classList.add("global-container-active")
     searchBar?.focus()
   }
 

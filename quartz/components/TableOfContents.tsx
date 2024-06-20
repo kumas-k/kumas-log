@@ -20,6 +20,10 @@ const TableOfContents: QuartzComponent = ({
   displayClass,
   cfg,
 }: QuartzComponentProps) => {
+  if (fileData.slug === "index") {
+    return null
+  }
+
   if (!fileData.toc) {
     return null
   }

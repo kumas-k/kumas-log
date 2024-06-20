@@ -340,6 +340,7 @@ function renderGlobalGraph() {
   const container = document.getElementById("global-graph-outer")
   const sidebar = container?.closest(".sidebar") as HTMLElement
   container?.classList.add("active")
+  document.documentElement.classList.add("global-container-active")
   if (sidebar) {
     sidebar.style.zIndex = "1"
   }
@@ -348,6 +349,7 @@ function renderGlobalGraph() {
 
   function hideGlobalGraph() {
     container?.classList.remove("active")
+    document.documentElement.classList.remove("global-container-active")
     const graph = document.getElementById("global-graph-container")
     if (sidebar) {
       sidebar.style.zIndex = "unset"

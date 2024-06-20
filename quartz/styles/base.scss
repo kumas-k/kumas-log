@@ -7,6 +7,10 @@ html {
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
+
+  &.global-container-active {
+    overflow: hidden;
+  }
 }
 
 body,
@@ -489,6 +493,7 @@ ul.overflow,
 ol.overflow {
   max-height: 400;
   overflow-y: auto;
+  overscroll-behavior: none;
 
   // clearfix
   content: "";

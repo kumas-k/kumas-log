@@ -14,7 +14,7 @@ jobs:
       - name: Checkout content repo
         uses: actions/checkout@v4
         with:
-          repository: kumas-K/kumas-log-content
+          repository: kumas-k/kumas-log-content
           token: ${{ secrets.GH_ACTIONS_TOKEN }}
           path: content
 

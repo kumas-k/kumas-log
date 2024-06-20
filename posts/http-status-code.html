@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>HTTP의 상태코드의 종류와 의미</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="HTTP의 상태코드의 종류와 의미"/><meta property="og:description" content="개요 HTTP 에는 다양한 상태코드가 있습니다. 상태코드별로 어떠한 의미를 가지고 있는지 확인 해보도록 하겠습니다. http 상태코드 1xx (Informational): 요청이 수신되어 처리중 2xx (Successful): 요청 정상 처리 3xx (Redirection): 요청을 완료하려면 추가 행동이 필요 4xx (Client Error): 클라이언트 오류, 잘못된 문법등으로 서버가 요청을 수행할 수 없음 5xx (Server Error): 서버 오류, 서버가 정상 요청을 처리하지 못함 1xx (Informational) 🏃 요청이 수신되어 처리중 거의 사용되지 않음 2xx (Successful) 🙆 클라이언트의 요청을 성공적으로 처리 200 OK 요청 성공 주로 리소스를 조회 하는 GET 요청의 응답코드로 사용 201 Created 요청 성공하여 새로운 리소스가 생성됨 주로 리소스를 생성 하는 POST 요청의 응답코드로 사용 202 Accepted 요청이 접수되었으나 처리가 완료되지 않음 배치 처리 같은 곳에서 사용 204 No Content 서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없음 응답 결과가 필요없는 곳에서 사용 3xx (Redirection) 🔨 요청을 완료하기 위해 유저 에이전트의 추가 조치 필요 300 Multiple Choices 거의 사용되지 않음 301 Moved Permanently 리소스의 URI가 영구적으로 이동 원래의 URL를 사용하지 않으며, 검색 엔진에서도 변경을 인지 리다이렉트시 요청 메서드가 GET으로 변경되고, 본문이 제거될 수 있음 302 Found 리소스의 URI가 일시적으로 이동 리다이렉트시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있음 303 See Other 302 Found와 기능이 같음 리다이렉트시 요청메서드가 GET으로 반드시 변경됨 304 Not Modified 캐시를 목적으로 사용 클라이언트에게 리소스가 수정되지 않았음을 알려줌 응답에 메시지 바디를 포함하면 안됨 주로 GET, HEAD 요청시에 사용 307 Temporary Redirect 302 Found와 기능이 같음 리다이렉트시 요청 메서드와 본문을 유지 308 Permanent Redirect 301 Moved Permanently와 기능이 같음 리다이렉트시 요청 메서드와 본문을 유지 일시적인 리다이렉트인 302, 307, 303 중에 무엇을 써야 할까? 초기 302 상태 코드의 스펙 의도는 HTTP의 메서드를 유지하는 것이 였으나, 설명의 모호함으로 인하여 대부분의 브라우저가 GET요청으로 바뀌도록 설계가 되었습니다."/><meta property="og:image" content="https://kumas.dev/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="개요 HTTP 에는 다양한 상태코드가 있습니다. 상태코드별로 어떠한 의미를 가지고 있는지 확인 해보도록 하겠습니다. http 상태코드 1xx (Informational): 요청이 수신되어 처리중 2xx (Successful): 요청 정상 처리 3xx (Redirection): 요청을 완료하려면 추가 행동이 필요 4xx (Client Error): 클라이언트 오류, 잘못된 문법등으로 서버가 요청을 수행할 수 없음 5xx (Server Error): 서버 오류, 서버가 정상 요청을 처리하지 못함 1xx (Informational) 🏃 요청이 수신되어 처리중 거의 사용되지 않음 2xx (Successful) 🙆 클라이언트의 요청을 성공적으로 처리 200 OK 요청 성공 주로 리소스를 조회 하는 GET 요청의 응답코드로 사용 201 Created 요청 성공하여 새로운 리소스가 생성됨 주로 리소스를 생성 하는 POST 요청의 응답코드로 사용 202 Accepted 요청이 접수되었으나 처리가 완료되지 않음 배치 처리 같은 곳에서 사용 204 No Content 서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없음 응답 결과가 필요없는 곳에서 사용 3xx (Redirection) 🔨 요청을 완료하기 위해 유저 에이전트의 추가 조치 필요 300 Multiple Choices 거의 사용되지 않음 301 Moved Permanently 리소스의 URI가 영구적으로 이동 원래의 URL를 사용하지 않으며, 검색 엔진에서도 변경을 인지 리다이렉트시 요청 메서드가 GET으로 변경되고, 본문이 제거될 수 있음 302 Found 리소스의 URI가 일시적으로 이동 리다이렉트시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있음 303 See Other 302 Found와 기능이 같음 리다이렉트시 요청메서드가 GET으로 반드시 변경됨 304 Not Modified 캐시를 목적으로 사용 클라이언트에게 리소스가 수정되지 않았음을 알려줌 응답에 메시지 바디를 포함하면 안됨 주로 GET, HEAD 요청시에 사용 307 Temporary Redirect 302 Found와 기능이 같음 리다이렉트시 요청 메서드와 본문을 유지 308 Permanent Redirect 301 Moved Permanently와 기능이 같음 리다이렉트시 요청 메서드와 본문을 유지 일시적인 리다이렉트인 302, 307, 303 중에 무엇을 써야 할까? 초기 302 상태 코드의 스펙 의도는 HTTP의 메서드를 유지하는 것이 였으나, 설명의 모호함으로 인하여 대부분의 브라우저가 GET요청으로 바뀌도록 설계가 되었습니다."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="posts/http-status-code"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h1 class="page-title"><a href="..">🪴 kumas log,</a></h1><div class="spacer mobile-only"></div><div class="search"><div id="search-icon"><p>Search</p><div></div><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search</title><desc id="desc">Search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></div><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><div class="darkmode"><input class="toggle" id="darkmode-toggle" type="checkbox" tabindex="-1"/><label id="toggle-label-light" for="darkmode-toggle" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg></label><label id="toggle-label-dark" for="darkmode-toggle" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></label></div><div class="toc desktop-only"><button type="button" id="toc" class><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content"><ul class="overflow"><li class="depth-0"><a href="#개요" data-for="개요">개요</a></li><li class="depth-1"><a href="#http-상태코드" data-for="http-상태코드">http 상태코드</a></li><li class="depth-1"><a href="#1xx-informational" data-for="1xx-informational">1xx (Informational)</a></li><li class="depth-1"><a href="#2xx-successful" data-for="2xx-successful">2xx (Successful)</a></li><li class="depth-1"><a href="#3xx-redirection" data-for="3xx-redirection">3xx (Redirection)</a></li><li class="depth-1"><a href="#4xx-client-error" data-for="4xx-client-error">4xx (Client Error)</a></li><li class="depth-1"><a href="#5xx-server-error" data-for="5xx-server-error">5xx (Server Error)</a></li><li class="depth-0"><a href="#참고" data-for="참고">참고</a></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../posts/">Posts</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>HTTP의 상태코드의 종류와 의미</a></div></nav><h1 class="article-title">HTTP의 상태코드의 종류와 의미</h1><p show-comma="true" class="content-meta"><span>Jan 31, 2022</span><span>6 min read</span></p><ul class="tags"><li><a href="../tags/http" class="internal tag-link">http</a></li></ul></div></div><article class="popover-hint"><h2 id="개요">개요<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#개요" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>HTTP 에는 다양한 상태코드가 있습니다. 상태코드별로 어떠한 의미를 가지고 있는지 확인 해보도록 하겠습니다.</p>
+<h3 id="http-상태코드">http 상태코드<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#http-상태코드" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>1xx (Informational): 요청이 수신되어 처리중</li>
+<li>2xx (Successful): 요청 정상 처리</li>
+<li>3xx (Redirection): 요청을 완료하려면 추가 행동이 필요</li>
+<li>4xx (Client Error): 클라이언트 오류, 잘못된 문법등으로 서버가 요청을 수행할 수 없음</li>
+<li>5xx (Server Error): 서버 오류, 서버가 정상 요청을 처리하지 못함</li>
+</ul>
+<h3 id="1xx-informational">1xx (Informational)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1xx-informational" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>🏃 요청이 수신되어 처리중</p>
+<ul>
+<li>거의 사용되지 않음</li>
+</ul>
+<h3 id="2xx-successful">2xx (Successful)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2xx-successful" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>🙆 클라이언트의 요청을 성공적으로 처리</p>
+<ul>
+<li>200 OK
+<ul>
+<li>요청 성공</li>
+<li>주로 리소스를 조회 하는 GET 요청의 응답코드로 사용</li>
+</ul>
+</li>
+<li>201 Created
+<ul>
+<li>요청 성공하여 새로운 리소스가 생성됨</li>
+<li>주로 리소스를 생성 하는 POST 요청의 응답코드로 사용</li>
+</ul>
+</li>
+<li>202 Accepted
+<ul>
+<li>요청이 접수되었으나 처리가 완료되지 않음</li>
+<li>배치 처리 같은 곳에서 사용</li>
+</ul>
+</li>
+<li>204 No Content
+<ul>
+<li>서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없음</li>
+<li>응답 결과가 필요없는 곳에서 사용</li>
+</ul>
+</li>
+</ul>
+<h3 id="3xx-redirection">3xx (Redirection)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3xx-redirection" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>🔨 요청을 완료하기 위해 유저 에이전트의 추가 조치 필요</p>
+<ul>
+<li>300 Multiple Choices
+<ul>
+<li>거의 사용되지 않음</li>
+</ul>
+</li>
+<li>301 Moved Permanently
+<ul>
+<li>리소스의 URI가 영구적으로 이동</li>
+<li>원래의 URL를 사용하지 않으며, 검색 엔진에서도 변경을 인지</li>
+<li>리다이렉트시 요청 메서드가 GET으로 변경되고, 본문이 제거될 수 있음</li>
+</ul>
+</li>
+<li>302 Found
+<ul>
+<li>리소스의 URI가 일시적으로 이동</li>
+<li>리다이렉트시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있음</li>
+</ul>
+</li>
+<li>303 See Other
+<ul>
+<li>302 Found와 기능이 같음</li>
+<li>리다이렉트시 요청메서드가 GET으로 반드시 변경됨</li>
+</ul>
+</li>
+<li>304 Not Modified
+<ul>
+<li>캐시를 목적으로 사용</li>
+<li>클라이언트에게 리소스가 수정되지 않았음을 알려줌</li>
+<li>응답에 메시지 바디를 포함하면 안됨</li>
+<li>주로 GET, HEAD 요청시에 사용</li>
+</ul>
+</li>
+<li>307 Temporary Redirect
+<ul>
+<li>302 Found와 기능이 같음</li>
+<li>리다이렉트시 요청 메서드와 본문을 유지</li>
+</ul>
+</li>
+<li>308 Permanent Redirect
+<ul>
+<li>301 Moved Permanently와 기능이 같음</li>
+<li>리다이렉트시 요청 메서드와 본문을 유지</li>
+</ul>
+</li>
+<li>일시적인 리다이렉트인 302, 307, 303 중에 무엇을 써야 할까?
+<ul>
+<li>초기 302 상태 코드의 스펙 의도는 HTTP의 메서드를 유지하는 것이 였으나, 설명의 모호함으로 인하여 대부분의 브라우저가 GET요청으로 바뀌도록 설계가 되었습니다. 그래서 모호한 302 대신 명확한 307, 303이 등장하였습니다.</li>
+<li>스펙상 307, 303을 권장하지만, 현실적으로 많은 애플리케이션 라이브러리들이 302을 기본값으로 사용하고 있기 때문에 자동 리다이렉션시 GET 요청으로 변경되어도 문제가 없다면 302을 사용하면 됩니다</li>
+</ul>
+</li>
+</ul>
+<h3 id="4xx-client-error">4xx (Client Error)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4xx-client-error" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>❗ 클라이언트 오류</p>
+<ul>
+<li>400 Bad Request
+<ul>
+<li>클라이언트가 잘못된 요청을 해서 서버가 요청을 처리할 수 없음</li>
+</ul>
+</li>
+<li>401 Unauthorized
+<ul>
+<li>인증(Authentication) 되지 않았거나 인가(Authorization)가 필요함</li>
+</ul>
+</li>
+<li>403 Forbidden
+<ul>
+<li>서버가 요청을 이해 했지만 승인을 거부함</li>
+<li>인증 자격 증명은 있지만 접근 권한이 불충분한 경우</li>
+</ul>
+</li>
+<li>404 Not Found
+<ul>
+<li>요청 리소스가 서버에 없음</li>
+<li>클라이언트가 권한이 부족한 리소스에 접근할때 사용하기도 함</li>
+</ul>
+</li>
+</ul>
+<h3 id="5xx-server-error">5xx (Server Error)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5xx-server-error" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>⚡ 서버 오류</p>
+<ul>
+<li>500 Internal Server Error
+<ul>
+<li>서버 내부 문제로 오류 발생</li>
+</ul>
+</li>
+<li>503 Service Unavailable
+<ul>
+<li>서버가 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음</li>
+<li>Retry_after 헤더 필드로 얼마뒤에 복구되는지 보낼 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="참고">참고<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#참고" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC" class="external">모든 개발자를 위한 HTTP 웹 기본 지식<svg class="external-icon" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul></article></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><svg version="1.1" id="global-graph-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+	s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+	c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+	C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+	c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+	v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+	s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+	C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+	S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+	s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+	s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div></div><footer class><hr/><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.2.3</a> © 2024</p><ul><li><a href="https://github.com/kumas-K">GitHub</a></li><li><a href="https://www.linkedin.com/in/kumas">LinkedIn</a></li></ul></footer></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../postscript.js" type="module"></script></html>

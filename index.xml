@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>🪴 kumas log,</title>
+      <link>https://kumas.dev</link>
+      <description>Last 10 notes on 🪴 kumas log,</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Posts</title>
+    <link>https://kumas.dev/posts/</link>
+    <guid>https://kumas.dev/posts/</guid>
+    <description></description>
+    <pubDate>Thu, 20 Jun 2024 10:56:03 GMT</pubDate>
+  </item><item>
+    <title>Notes</title>
+    <link>https://kumas.dev/notes/</link>
+    <guid>https://kumas.dev/notes/</guid>
+    <description></description>
+    <pubDate>Thu, 20 Jun 2024 10:56:03 GMT</pubDate>
+  </item><item>
+    <title>Welcome to Digital Garden 🧠</title>
+    <link>https://kumas.dev/</link>
+    <guid>https://kumas.dev/</guid>
+    <description>Hey, I’m Kumas 🐻.</description>
+    <pubDate>Mon, 17 Jun 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>AWS ECR docker 로그인</title>
+    <link>https://kumas.dev/notes/docker-login-by-aws-ecr</link>
+    <guid>https://kumas.dev/notes/docker-login-by-aws-ecr</guid>
+    <description>명령 aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com 참고 프라이빗 레지스트리 인증 ...</description>
+    <pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>python hotreload</title>
+    <link>https://kumas.dev/notes/python-hotreload</link>
+    <guid>https://kumas.dev/notes/python-hotreload</guid>
+    <description>python -m venv venv source venv/bin/activate pip install -e . ``.</description>
+    <pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>iCloud Custom Domain 설정</title>
+    <link>https://kumas.dev/notes/set-icloud-custom-domain</link>
+    <guid>https://kumas.dev/notes/set-icloud-custom-domain</guid>
+    <description>iCloud Mail server settings for other email client apps Use these iCloud Mail server settings to manually set up your iCloud Mail account in an email client app ...</description>
+    <pubDate>Wed, 29 May 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Dart에서 List와 Iterable의 차이점</title>
+    <link>https://kumas.dev/notes/difference-between-list-and-iterable-in-dart</link>
+    <guid>https://kumas.dev/notes/difference-between-list-and-iterable-in-dart</guid>
+    <description>List 선언시 생성됨 Iterable 사용시 생성됨 void main(){ final numbers = List.generate(6, (index){ print(&#039;the number ${index + 1} generated&#039;); return index + 1; }); for(final number ...</description>
+    <pubDate>Thu, 29 Feb 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>쉘 NULL 체크 하기</title>
+    <link>https://kumas.dev/notes/validate-null-in-shell</link>
+    <guid>https://kumas.dev/notes/validate-null-in-shell</guid>
+    <description>#!/bin/sh TYPE=${1} if [ -z $TYPE ] then TYPE=TEST fi echo ${TYPE}.</description>
+    <pubDate>Tue, 16 Jan 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>AWS EKS 사용자 추가</title>
+    <link>https://kumas.dev/notes/add-user-by-aws-eks</link>
+    <guid>https://kumas.dev/notes/add-user-by-aws-eks</guid>
+    <description>- k describe -n kube-system configmap/aws-auth - k edit -n kube-system configmap/aws-auth 출처 docs.aws.amazon.com/ko_kr/eks/latest/userguide/add-user-role.html ...</description>
+    <pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>git 저장소 token으로 접근하기</title>
+    <link>https://kumas.dev/notes/access-git-repository-with-token</link>
+    <guid>https://kumas.dev/notes/access-git-repository-with-token</guid>
+    <description>git config --global url.&quot;https://${PRIVATE-ACCESS-TOKEN}:x-oauth-basic@github.com/${id}&quot;.insteadOf &quot;github.com/${id}&quot;.</description>
+    <pubDate>Wed, 08 Nov 2023 00:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkkumas_dev=self.webpackChunkkumas_dev||[]).push([[218],{2224:function(e,t,n){n.r(t);var l=n(7294),a=n(5829);t.default=function(){return l.createElement(l.Fragment,null,l.createElement(a.Z,null),l.createElement("div",{className:"flex items-center m-auto"},l.createElement("h2",null,"404 ERROR"),l.createElement("h3",null,"Page Not Found")))}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-747d80eb8093c6ca8178.js.map

@@ -21,6 +21,12 @@ async function mouseEnterHandler(
     })
   }
 
+  const popover = [...link.children].find((child) => child.classList.contains("popover"))
+
+  if (popover) {
+    link.removeChild(popover)
+  }
+
   const hasAlreadyBeenFetched = () =>
     [...link.children].some((child) => child.classList.contains("popover"))
 
